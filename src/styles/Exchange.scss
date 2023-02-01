@@ -1,0 +1,425 @@
+@import './Colors.scss';
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--text-color);
+    border-radius: 10px;
+}
+
+.exchange-heading {
+    margin-top: 5vh;
+    position: relative;
+    text-align: center;
+    z-index: 3;
+    &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        border: 6px solid var(--side-bar-color);
+        left: 0;
+        z-index: -2;
+    }
+    &::before {
+        content: '';
+        position: absolute;
+        height: 6px;
+        background-color: var(--Body-color);
+        z-index: -1;
+    }
+}
+.exchange {
+    position: relative;
+    margin-top: 5vh;
+    border: 6px solid var(--side-bar-color);
+    .from,
+    .to {
+        position: relative;
+        border-right: 6px solid var(--side-bar-color);
+        .name {
+            text-transform: uppercase;
+            position: absolute;
+            width: 100%;
+            z-index: 2;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 6px solid var(--side-bar-color);
+            span {
+                display: flex;
+                transition:transform 0.3s;
+                &.active {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+        .suggestionsInput  {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 0px;
+            padding: 0px 20px;
+            border-bottom: 0px solid var(--text-color);
+            background-color: var(--side-bar-color);
+            transition: height 0.3s,padding 0.3s;
+            z-index: 2;
+            &.showen {
+                border-bottom: 4px solid var(--text-color);
+            }
+        }
+        .suggestions {
+            cursor: default;
+            position: absolute;
+            left: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 0px;
+            background-color: var(--side-bar-color);
+            height: 0vh;
+            overflow-y: scroll;
+            transition:height 0.3s,top 0.3s;
+            z-index: 2;
+            li {
+                cursor: pointer;
+                width: 100%;
+                border-bottom: 4px solid var(--text-color);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-transform: uppercase;
+            }
+        }
+        .value {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+            input {
+                background-color: var(--side-bar-color);
+            }
+        }
+    }
+    .equal {
+        width: 20%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .to {
+        border-left: 6px solid var(--side-bar-color);
+        border-right: none;
+    }
+}
+.calculate {
+    margin-top: 5vh;
+    text-transform: uppercase;
+}
+.Btns {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+@media only screen and (min-width: 1130px){
+    .exchange-heading {
+        grid-column: 1/13;
+        &::after {
+            height: 40px;
+            top: 35%;
+        }
+        &::before {
+            width: 40%;
+            left: 30%;
+            top: 35%;
+        }
+    }
+    .exchange {
+        height: 440px;
+        display: flex;
+        grid-column: 1/13;
+        border-radius: 20px;
+        .from,
+        .to {
+            width: 40%;
+            .name {
+                padding: 0px 20px;
+                height: 50px;
+            }
+            .suggestionsInput  {
+                padding: 0px 20px;
+                top: 50px;
+                &.showen {
+                    padding: 10px 20px;
+                    height: 50px;
+                }
+            }
+            .suggestions {
+                top: 50px;
+                border-radius: 0 0 0 20px;
+                li {
+                    padding: 10px;
+                }
+                &.showen {
+                    height: 280px;
+                    top: 100px;
+                    gap: 10px;
+                }
+            }
+        }
+        .to {
+            .suggestions {
+                border-radius: 0 0 20px 0;
+            }
+        }
+    }
+    .calculate {
+        grid-column: 2/12;
+        height: 50px;
+    }
+    .Btns {
+        grid-column: 2/12;
+        button {
+            width: 400px;
+            text-transform: capitalize;
+        }
+    }
+}
+@media only screen and (max-width: 1130px) and (min-width:900px) {
+    .exchange-heading {
+        grid-column: 1/13;
+        &::after {
+            height: 40px;
+            top: 30%;
+        }
+        &::before {
+            width: 50%;
+            left: 25%;
+            top: 30%;
+        }
+    }
+    .exchange {
+        height: 440px;
+        display: flex;
+        grid-column: 1/13;
+        border-radius: 20px;
+        .from,
+        .to {
+            width: 40%;
+            .name {
+                padding: 0px 20px;
+                height: 50px;
+            }
+            .suggestionsInput {
+                padding: 0px 20px;
+                top: 50px;
+                &.showen {
+                    padding: 10px 20px;
+                    height: 50px;
+                }
+            }
+            .suggestions {
+                top: 50px;
+                border-radius: 0 0 0 20px;
+                li {
+                    padding: 10px;
+                }
+                &.showen {
+                    height: 280px;
+                    top: 100px;
+                    gap: 10px;
+                }
+            }
+        }
+        .to {
+            .suggestions {
+                border-radius: 0 0 20px 0;
+            }
+        }
+    }
+    .calculate {
+        grid-column: 2/12;
+        height: 50px;
+    }
+    .Btns {
+        grid-column: 2/12;
+        button {
+            width: 380px;
+            text-transform: capitalize;
+        }
+    }
+}
+@media only screen and (max-width: 900px) and (min-width:480px){
+    .exchange-heading {
+        grid-column: 1/7;
+        &::after {
+            height: 40px;
+            top: 20%;
+        }
+        &::before {
+            width: 60%;
+            left: 20%;
+            top: 20%;
+        }
+    }
+    .exchange {
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+        grid-column: 1/7;
+        border-radius: 10px;
+        .from,
+        .to {
+            width: 100%;
+            height: 45%;
+            border: none;
+            .name {
+                padding: 0px 10px;
+                height: 40px;
+            }
+            .suggestionsInput  {
+                padding: 0px 10px;
+                top: 40px;
+                &.showen {
+                    padding: 5px 10px;
+                    height: 40px;
+                }
+            }
+            .suggestions {
+                top: 40px;
+                border-radius: 0 0 0 10px;
+                li {
+                    padding: 5px;
+                }
+                &.showen {
+                    height: 140px;
+                    top: 80px;
+                    gap: 5px;
+                }
+            }
+            .value {
+                input {
+                    width: 220px;
+                }
+            }
+        }
+        .to {
+            .suggestions {
+                border-radius: 0 0 10px 0;
+            }
+        }
+        .equal {
+            width: 100%;
+            height: 10%;
+            border-bottom: 4px solid var(--side-bar-color);
+            border-top: 4px solid var(--side-bar-color);
+        }
+    }
+    .calculate {
+        grid-column: 1/7;
+        height: 40px;
+    }
+    .Btns {
+        grid-column: 2/6;
+        button {
+            width: 320px;
+            text-transform: capitalize;
+        }
+    }
+}
+@media only screen and (max-width: 480px){
+    .exchange-heading {
+        grid-column: 1/7;
+        &::after {
+            height: 40px;
+            top: 20%;
+        }
+        &::before {
+            width: 60%;
+            left: 20%;
+            top: 20%;
+        }
+    }
+    .exchange {
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+        grid-column: 1/7;
+        border-radius: 10px;
+        .from,
+        .to {
+            width: 100%;
+            height: 45%;
+            border: none;
+            .name {
+                padding: 0px 10px;
+                height: 40px;
+            }
+            .suggestionsInput  {
+                padding: 0px 10px;
+                top: 40px;
+                &.showen {
+                    padding: 5px 10px;
+                    height: 40px;
+                }
+            }
+            .suggestions {
+                top: 40px;
+                border-radius: 0 0 0 10px;
+                li {
+                    padding: 5px;
+                }
+                &.showen {
+                    height: 140px;
+                    top: 80px;
+                    gap: 5px;
+                }
+            }
+            .value {
+                input {
+                    width: 220px;
+                }
+            }
+        }
+        .to {
+            .suggestions {
+                border-radius: 0 0 10px 0;
+            }
+        }
+        .equal {
+            width: 100%;
+            height: 10%;
+            border-bottom: 4px solid var(--side-bar-color);
+            border-top: 4px solid var(--side-bar-color);
+        }
+    }
+    .calculate {
+        grid-column: 1/7;
+        height: 40px;
+    }
+    .Btns {
+        grid-column: 2/6;
+        button {
+            width: 320px;
+            text-transform: capitalize;
+        }
+    }
+}

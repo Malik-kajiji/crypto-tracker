@@ -1,0 +1,137 @@
+@import './Colors.scss';
+header {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    button {
+        width: fit-content;
+        &.redBtn {
+            border: 2px solid #D63031;
+            color: #D63031;
+            &:hover {
+                color: #fff;
+                background-image: linear-gradient(#D63031,#e20000);
+            }
+        }
+    }
+}
+.text {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    height: fit-content;
+    text-align: start;
+}
+.chart-btns {
+    margin-top: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+@media only screen and (min-width: 1130px){
+    header {
+        grid-column: 1/13;
+        img {
+            width: 150px;
+        }
+        button {
+            min-width: 260px;
+            margin-left: 320px;
+            padding: 0 40px;
+        }
+    }
+    .text {
+        grid-column: 1/13;
+    }
+    .chart {
+        grid-column: 1/13;
+    }
+    .chart-btns {
+        grid-column: 1/13;
+        button {
+            width: 280px;
+        }
+    }
+}
+@media only screen and (max-width: 1130px) and (min-width:900px) {
+    header {
+        grid-column: 1/13;
+        img {
+            width: 150px;
+        }
+        button {
+            min-width: 240px;
+            margin-left: 100px;
+            padding: 0 30px;
+        }
+    }
+    .text {
+        grid-column: 1/13;
+    }
+    .chart {
+        grid-column: 1/13;
+    }
+    .chart-btns {
+        grid-column: 1/13;
+        button {
+            width: 220px;
+        }
+    }
+}
+@media only screen and (max-width: 900px) and (min-width:480px){
+    header {
+        grid-column: 1/7;
+        flex-wrap: wrap;
+        img {
+            width: 80px;
+        }
+        button {
+            min-width: 260px;
+            margin-inline: 105px;
+            margin-top: 30px;
+        }
+    }
+    .text {
+        grid-column: 1/7;
+    }
+    .chart {
+        grid-column: 1/7;
+    }
+    .chart-btns {
+        grid-column: 1/7;
+        flex-direction: column;
+        gap: 10px;
+        button {
+            width: 260px;
+        }
+    }
+}
+@media only screen and (max-width: 480px){
+    header {
+        grid-column: 1/7;
+        flex-wrap: wrap;
+        img {
+            width: 60px;
+        }
+        button {
+            min-width: 220px;
+            margin-inline: 35px;
+            margin-top: 20px;
+        }
+    }
+    .text {
+        grid-column: 1/7;
+    }
+    .chart {
+        grid-column: 1/7;
+    }
+    .chart-btns {
+        grid-column: 1/7;
+        flex-direction: column;
+        gap: 10px;
+        button {
+            width: 220px;
+        }
+    }
+}

@@ -1,0 +1,385 @@
+@import './Colors.scss';
+
+// start sign-up and login 
+.sign-up,
+.login {
+    background-color: var(--side-bar-color);
+    margin: auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    input {
+        position: relative;
+        background-color: transparent;
+        border: 2px solid;
+        border-width: 2px;
+        border-top: 0;
+        border-left: 0;
+        border-right: 0;
+        border-image-slice: 1;
+        border-image-source: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    }
+    p {
+        cursor: pointer;
+        text-decoration: underline;
+        span {
+            background: -webkit-linear-gradient(var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+}
+
+@media only screen and (min-width: 1130px){
+    .sign-up,
+    .login {
+        grid-column: 4/10;
+        height: 660px;
+        border-radius: 20px;
+        padding-top: 30px;
+        input {
+            width: 360px;
+            height: 60px;
+        }
+        button {
+            width: 360px;
+        }
+    }
+}
+@media only screen and (max-width: 1130px) and (min-width:900px) {
+    .sign-up,
+    .login{
+        grid-column: 3/11;
+        height: 660px;
+        border-radius: 20px;
+        padding-top: 30px;
+        input {
+            width: 360px;
+            height: 60px;
+        }
+        button {
+            width: 360px;
+        }
+    }
+}
+@media only screen and (max-width: 900px) and (min-width:480px){
+    .sign-up,
+    .login {
+        grid-column: 2/6;
+        height: 580px;
+        border-radius: 15px;
+        padding-top: 15px;
+        input {
+            width: 260px;
+            height: 40px;
+        }
+        button {
+            width: 260px;
+        }
+    }
+}
+@media only screen and (max-width: 480px){
+    .sign-up,
+    .login {
+        grid-column: 1/7;
+        height: 480px;
+        border-radius: 10px;
+        padding-top: 10px;
+        input {
+            width: 220px;
+            height: 30px;
+        }
+        button {
+            width: 220px;
+        }
+    }
+}
+// end sign-up and login 
+// start account 
+.account {
+    position: relative;
+    margin-top: 5vh;
+    border: 2px solid var(--primary-color);
+    .user-name {
+        position: absolute;
+        background-color: var(--Body-color);
+        top: 0;
+        transform: translateY(-50%);
+        text-transform: uppercase;
+    }
+    .Image {
+        position: absolute;
+        background-color: var(--side-bar-color);
+        border-radius: 50%;
+        top: 50%;
+        transform: translateY(-50%);
+        background-size: cover;
+    }
+    .email {
+        position: absolute;
+    }
+    button {
+        position: absolute;
+    }
+}
+.update-profile {
+    position: relative;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    border: 2px solid var(--primary-color);
+    .label {
+        position: absolute;
+        background-color: var(--Body-color);
+        top: 0;
+        transform: translateY(-50%);
+        text-transform: uppercase;
+    }
+    input {
+        position: absolute;
+        background-color: transparent;
+        border: 2px solid;
+        border-width: 2px;
+        border-top: 0;
+        border-left: 0;
+        border-right: 0;
+        border-image-slice: 1;
+        border-image-source: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    }
+    button {
+        position: absolute;
+    }
+}
+@media only screen and (min-width: 1130px){
+    .account {
+        grid-column: 1/13;
+        height: 400px;
+        border-radius: 20px;
+        .user-name {
+            padding: 0px 15px;
+            left: 50px;
+        }
+        .Image {
+            width: 250px;
+            height: 250px;
+            left: 30px;
+        }
+        .email {
+            top: 40%;
+            left: 320px;
+        }
+        button {
+            top: 50%;
+            left: 320px;
+            width: 240px;
+        }
+    }
+    .update-profile {
+        grid-column: 1/13;
+        height: 400px;
+        border-radius: 20px;
+        .label {
+            padding: 0px 15px;
+            left: 50px;
+        }
+        input {
+            height: 50px;
+            width: 320px;
+        }
+        .username {
+            left: 50px;
+            top: 100px;
+        }
+        .photo {
+            left: 50px;
+            top: 200px;
+        }
+        .username-btn {
+            width: 320px;
+            right: 50px;
+            top: 110px;
+        }
+        .photo-btn {
+            width: 320px;
+            right: 50px;
+            top: 210px;
+        }
+    }
+}
+@media only screen and (max-width: 1130px) and (min-width:900px) {
+    .account {
+        grid-column: 1/13;
+        height: 400px;
+        border-radius: 20px;
+        .user-name {
+            padding: 0px 15px;
+            left: 30px;
+        }
+        .Image {
+            width: 220px;
+            height: 220px;
+            left: 30px;
+        }
+        .email {
+            top: 40%;
+            left: 300px;
+        }
+        button {
+            top: 50%;
+            left: 300px;
+            width: 240px;
+        }
+    }
+    .update-profile {
+        grid-column: 1/13;
+        height: 400px;
+        border-radius: 20px;
+        .label {
+            padding: 0px 15px;
+            left: 30px;
+        }
+        input {
+            height: 30px;
+            width: 280px;
+        }
+        .username {
+            left: 30px;
+            top: 100px;
+        }
+        .photo {
+            left: 30px;
+            top: 200px;
+        }
+        .username-btn {
+            width: 280px;
+            right: 30px;
+            top: 90px;
+        }
+        .photo-btn {
+            width: 280px;
+            right: 30px;
+            top: 190px;
+        }
+    }
+}
+@media only screen and (max-width: 900px) and (min-width:480px){
+    .account {
+        grid-column: 1/7;
+        height: 340px;
+        border-radius: 15px;
+        .user-name {
+            padding: 0px 10px;
+            left: 20px;
+        }
+        .Image {
+            width: 160px;
+            height: 160px;
+            left: 20px;
+        }
+        .email {
+            top: 40%;
+            left: 200px;
+        }
+        button {
+            top: 50%;
+            left: 200px;
+            width: 180px;
+        }
+    }
+    .update-profile {
+        grid-column: 1/7;
+        height: 340px;
+        border-radius: 15px;
+        .label {
+            padding: 0px 10px;
+            left: 20px;
+        }
+        input {
+            height: 30px;
+            width: 240px;
+        }
+        .username {
+            left: 50%;
+            transform: translateX(-50%);
+            top: 70px;
+        }
+        .photo {
+            left: 50%;
+            transform: translateX(-50%);
+            top: 200px;
+        }
+        .username-btn {
+            width: 240px;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 120px;
+        }
+        .photo-btn {
+            width: 240px;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 250px;
+        }
+    }
+}
+@media only screen and (max-width: 480px){
+    .account {
+        grid-column: 1/7;
+        height: 240px;
+        border-radius: 10px;
+        .user-name {
+            padding: 0px 10px;
+            left: 20px;
+        }
+        .Image {
+            width: 100px;
+            height: 100px;
+            left: 20px;
+        }
+        .email {
+            top: 40%;
+            left: 140px;
+        }
+        button {
+            top: 50%;
+            left: 140px;
+            width: 100px;
+        }
+    }
+    .update-profile {
+        grid-column: 1/7;
+        height: 240px;
+        border-radius: 10px;
+        .label {
+            padding: 0px 10px;
+            left: 20px;
+        }
+        input {
+            height: 30px;
+            width: 180px;
+        }
+        .username {
+            left: 50%;
+            transform: translateX(-50%);
+            top: 40px;
+        }
+        .photo {
+            left: 50%;
+            transform: translateX(-50%);
+            top: 140px;
+        }
+        .username-btn {
+            width: 180px;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 80px;
+        }
+        .photo-btn {
+            width: 180px;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 180px;
+        }
+    }
+}
+// end account 

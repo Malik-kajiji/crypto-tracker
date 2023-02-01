@@ -1,0 +1,280 @@
+@import './Colors.scss';
+//start status
+.status {
+    position: relative;
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5vh;
+    h2 {
+        position: absolute;
+        top: 0px;
+        transform: translateY(-60%);
+        background-color: var(--Body-color);
+        padding: 0 10px;
+    }
+    p {
+        text-transform: capitalize;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        text-align: center;
+    }
+}
+//end status
+//start top currencies
+.top-currencies {
+    margin-top: 5vh;
+    text-align: center;
+}
+.search-form {
+    margin-top: 5vh;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    input {
+        width: 90%;
+        height: 100%;
+        padding-left: 20px;
+        border-radius: 10px;
+        border: 2px solid var(--primary-color);
+        background-color: var(--side-bar-color);
+    }
+    button {
+        width: 5%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+        transition: 0.3s;
+        border-radius: 50%;
+        &:hover {
+            background-color: var(--side-bar-color);
+        }
+        span {
+            display: flex;
+            color: var(--primary-color);
+        }
+    }
+}
+.coins {
+    margin-top: 5vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    .coin {
+        position: relative;
+        width: 100%;
+        border: 2px solid var(--primary-color);
+        &:hover {
+            background-image: linear-gradient(var(--primary-color),var(--secondary-color));
+            p {
+                color: var(--Body-color);
+            }
+        }
+        a {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-transform: capitalize;
+            .name {
+                min-width: 30%;
+                text-align: start;
+            }
+        }
+    }
+}
+.bullets {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    li {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        border: 2px solid var(--primary-color);
+        &:hover,
+        &.active {
+            background-image: linear-gradient(var(--primary-color),var(--secondary-color));
+            color: var(--Body-color);
+        }
+    }
+}
+//end top currencies
+@media only screen and (min-width: 1130px){
+    .status {
+        grid-column: 1/13;
+        border-radius: 15px;
+        padding: 20px;
+        height: 200px;
+        p {
+            height: 80%;
+        }
+    }
+    .top-currencies {
+        grid-column: 1/13;
+    }
+    .search-form {
+        grid-column: 1/13;
+    }
+    .coins {
+        grid-column: 1/13;
+        gap: 10px;
+        height: 690px;
+        .coin {
+            height: 60px;
+            border-radius: 10px;
+            a {
+                padding: 0 10px;
+                img {
+                    height: 40px;
+                }
+            }
+        }
+    }
+    .bullets {
+        height: 40px;
+        grid-column: 1/13;
+        li {
+            width: 40px;
+            height: 40px;
+        }
+    }
+}
+@media only screen and (max-width: 1130px) and (min-width:900px) {
+    .status {
+        grid-column: 1/13;
+        border-radius: 15px;
+        padding: 20px;
+        height: 200px;
+        p {
+            height: 80%;
+        }
+    }
+    .top-currencies {
+        grid-column: 1/13;
+    }
+    .search-form {
+        grid-column: 1/13;
+    }
+    .coins {
+        grid-column: 1/13;
+        gap: 10px;
+        height: 590px;
+        .coin {
+            height: 50px;
+            border-radius: 10px;
+            a {
+                padding: 0 10px;
+                img {
+                    height: 35px;
+                }
+            }
+        }
+    }
+    .bullets {
+        height: 40px;
+        grid-column: 1/13;
+        li {
+            width: 40px;
+            height: 40px;
+        }
+    }
+}
+@media only screen and (max-width: 900px) and (min-width:480px){
+    .status {
+        grid-column: 1/7;
+        border-radius: 10px;
+        padding: 20px 60px;
+        height: 300px;
+        flex-wrap: wrap;
+        p {
+            height: 40%;
+        }
+    }
+    .top-currencies {
+        grid-column: 1/7;
+    }
+    .search-form {
+        grid-column: 1/7;
+    }
+    .coins {
+        grid-column: 1/7;
+        gap: 10px;
+        height: 590px;
+        .coin {
+            height: 50px;
+            border-radius: 10px;
+            a {
+                padding: 0 10px;
+                img {
+                    height: 35px;
+                }
+            }
+        }
+    }
+    .bullets {
+        height: 35px;
+        grid-column: 1/7;
+        li {
+            width: 35px;
+            height: 35px;
+        }
+    }
+}
+@media only screen and (max-width: 480px){
+    .status {
+        grid-column: 1/7;
+        border-radius: 10px;
+        padding: 10px 20px;
+        height: 300px;
+        flex-wrap: wrap;
+        p {
+            height: 40%;
+        }
+    }
+    .top-currencies {
+        grid-column: 1/7;
+    }
+    .search-form {
+        grid-column: 1/7;
+    }
+    .coins {
+        grid-column: 1/7;
+        gap: 10px;
+        height: 490px;
+        .coin {
+            height: 40px;
+            border-radius: 10px;
+            a {
+                padding: 0 10px;
+                img {
+                    height: 25px;
+                }
+            }
+        }
+    }
+    .bullets {
+        height: 30px;
+        grid-column: 1/7;
+        li {
+            width: 30px;
+            height: 30px;
+        }
+    }
+}
