@@ -7,27 +7,27 @@ const News = () => {
     const { data , isFetching } = useGetCryptoNewsQuery({category:'crypto',count:'20'})
     console.log(data)
     const [newsArray,setNewsArray ] = useState([{datePublished:'',name:'',url:'',providerLogo:'',newsImage:''}])
-    // useEffect(()=>{
-    //     if(!isFetching){
-    //         let items = data.value
-    //         let newArray = []
-    //         for(let i=0; i< items.length ; i++){
-    //             let dateDifference = new Date().getTime()-new Date(items[i].datePublished).getTime()
-    //             let datePublished;
-    //             if(dateDifference < (1000 * 60 * 60)){
-    //                 datePublished = `${Math.round(dateDifference/(1000*60))} min ago`
-    //             } else {
-    //                 datePublished = `${Math.round(dateDifference/(1000*60*60))} hour ago`
-    //             }
-    //             const name = items[i].name
-    //             const url = items[i].url
-    //             const newsImage = items[i].image?.thumbnail?.contentUrl
-    //             const providerLogo = items[i].provider[0].image?.thumbnail?.contentUrl || ''
-    //             newArray.push({datePublished,name,url,providerLogo,newsImage})
-    //         }
-    //         setNewsArray(newArray)
-    //     }
-    // },[isFetching,data])
+    useEffect(()=>{
+        if(!isFetching){
+            let items = data.value
+            let newArray = []
+            for(let i=0; i< items.length ; i++){
+                let dateDifference = new Date().getTime()-new Date(items[i].datePublished).getTime()
+                let datePublished;
+                if(dateDifference < (1000 * 60 * 60)){
+                    datePublished = `${Math.round(dateDifference/(1000*60))} min ago`
+                } else {
+                    datePublished = `${Math.round(dateDifference/(1000*60*60))} hour ago`
+                }
+                const name = items[i].name
+                const url = items[i].url
+                const newsImage = items[i].image?.thumbnail?.contentUrl
+                const providerLogo = items[i].provider[0].image?.thumbnail?.contentUrl || ''
+                newArray.push({datePublished,name,url,providerLogo,newsImage})
+            }
+            setNewsArray(newArray)
+        }
+    },[isFetching,data])
     
     if(isFetching) return <Loading />
     return (

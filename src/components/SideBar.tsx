@@ -42,10 +42,11 @@ const SideBar = () => {
             <aside className= {`side-bar ${slideShown?'' : 'closed'}`}>
                 <div className='logo'>
                     <img className='logo-image' src={theme === 'light'?'logo.png':'logo-dark.png'} alt=''/>
-                    <p className='TXT-normal'>
+                    <h2 className='TXT-normal'>
                         <span className='TXT-heading3'>c</span>rypto 
                         <span className='TXT-heading3'> t</span>racker
-                    </p>
+                        <a className='TXT-normal' rel="noreferrer" href='https://malikkajiji.online' target='_blank'>developed & designed by malik kajiji</a>
+                    </h2>
                 </div>
                 {/* eslint-disable-next-line jsx-a11y/no-redundant-roles*/}
                 <ul className='first-list' role='list'>
