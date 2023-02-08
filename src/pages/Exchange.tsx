@@ -5,6 +5,7 @@ import '../styles/Exchange.scss';
 import { IoIosArrowDropdown } from 'react-icons/io';
 import { cryptoList,currencyList } from '../suggestions';
 import { useGetExchangeQuery } from '../redux/ExchangeApi';
+import Error from '../components/Error';
 
 type ListType = {
         name: string;
@@ -98,8 +99,8 @@ const Exchange = () => {
     // to handle the event of changing exchanges
     const [exchangeArgs1,setExchangeArgs1] = useState({from:'',to:''});
     const [exchangeArgs2,setExchangeArgs2] = useState({from:'',to:''});
-    const { data:data1 , isFetching:isFetching1 } = useGetExchangeQuery(exchangeArgs1)
-    const { data:data2 , isFetching:isFetching2 } = useGetExchangeQuery(exchangeArgs2)
+    const { data:data1 , isFetching:isFetching1,isError:isError1 } = useGetExchangeQuery(exchangeArgs1)
+    const { data:data2 , isFetching:isFetching2,isError:isError2 } = useGetExchangeQuery(exchangeArgs2)
     useEffect(()=>{
         if(exchange1 !== 'choose here' && exchange2 !== 'choose here'){
             if(choosenExchange === 0){
@@ -150,7 +151,7 @@ const Exchange = () => {
         }
     },[isFetching1,isFetching2,inputValue])
 
-
+    if(isError1 || isError2) return <Error />
     return (
         <section className='container'>
             <h2 className='exchange-heading TXT-heading'>exchange rate</h2>

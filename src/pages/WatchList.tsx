@@ -8,9 +8,10 @@ import '../styles/WatchList.scss';
 import { doc,setDoc } from 'firebase/firestore';
 import { db } from '../config/firebase';
 import { alertActions } from '../redux/AlertController';
+import Error from '../components/Error';
 
 const WatchList = () => {
-    const { data , isFetching } = useGetCoinsListQuery('')
+    const { data , isFetching ,isError } = useGetCoinsListQuery('')
     const watchList = useSelector((state:RootState) => state.watchList);
     const [coinsToRender,setCoinsToRender] = useState([{
         id:'',
@@ -53,6 +54,7 @@ const WatchList = () => {
     },[isFetching,coinsId.coin.length])
 
     if(isFetching)return <Loading />
+    if(isError)return <Error />
     return (
         <section className='container'>
             <h2 className='WatchList-heading TXT-heading'> WatchList </h2>

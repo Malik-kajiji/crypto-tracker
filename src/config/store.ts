@@ -7,6 +7,7 @@ import { Theme } from '../redux/Theme';
 import { alertController } from '../redux/AlertController';
 import { User } from '../redux/User';
 import { WatchList } from '../redux/WatchList';
+import { TopHoldersApi } from '../redux/TopHoldersApi';
 
 export const store = configureStore({
     reducer:{
@@ -14,6 +15,7 @@ export const store = configureStore({
         [GeckoApi.reducerPath]: GeckoApi.reducer,
         [NewsApi.reducerPath]: NewsApi.reducer,
         [ExchangeApi.reducerPath]: ExchangeApi.reducer,
+        [TopHoldersApi.reducerPath]: TopHoldersApi.reducer,
         [Theme.name]:Theme.reducer,
         [alertController.name]:alertController.reducer,
         [User.name]:User.reducer,
@@ -25,6 +27,7 @@ export const store = configureStore({
     .concat(GeckoApi.middleware)
     .concat(NewsApi.middleware)
     .concat(ExchangeApi.middleware)
+    .concat(TopHoldersApi.middleware)
 });
 
 export type RootState = ReturnType<typeof store.getState>

@@ -5,7 +5,7 @@ const NotFound = () => {
     useEffect(()=>{
         setTimeout(()=>{
             document.querySelector('h3')?.click()
-        },2000)
+        },3000)
     },[])
     return (
         <section className='not-found'>

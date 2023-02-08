@@ -11,9 +11,10 @@ import {
   Coin , 
   Home , 
   News , 
+  TopHolders,
   WatchList,
   NotFound,
-  Exchange
+  Exchange,
 } from './pages';
 import Alert from './components/Alert';
 import { userAction } from './redux/User';
@@ -62,7 +63,7 @@ function App() {
         <SideBar />
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/news' element={<News />} />
+          <Route path='/topholders' element={<TopHolders />} />
           <Route path='/watchlist' element={<WatchList />} />
           <Route path='/exchange' element={<Exchange />} />
           <Route path='/account' element={<Account />} />

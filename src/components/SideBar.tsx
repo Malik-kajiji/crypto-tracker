@@ -1,12 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React , { useState,useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { BsChevronBarRight } from 'react-icons/bs';
+import { MdAttachMoney } from 'react-icons/md';
 import { AiOutlineHome,AiOutlineUser } from 'react-icons/ai';
-import { GiNewspaper } from 'react-icons/gi';
 import { RiFileList3Line } from 'react-icons/ri';
 import { BiTransfer } from 'react-icons/bi'
-import { BsToggle2Off, BsToggle2On} from 'react-icons/bs';
+import { BsToggle2Off, BsToggle2On ,BsChevronBarRight} from 'react-icons/bs';
 import { themeActions } from '../redux/Theme';
 import { useSelector,useDispatch } from 'react-redux';
 import type { RootState } from '../config/store';
@@ -59,11 +58,11 @@ const SideBar = () => {
                         </Link>
                     </li>
                     <li className='TXT-normal' onClick={()=>setSlideShowen(false)}>
-                        <Link to='news'>
+                        <Link to='topholders'>
                             <span className='TXT-heading3'>
-                                {GiNewspaper({})}
+                                {MdAttachMoney({})}
                             </span>
-                            News
+                            Top holders
                         </Link>
                     </li>
                     <li className='TXT-normal' onClick={()=>setSlideShowen(false)}>

@@ -5,14 +5,15 @@ import { Link } from 'react-router-dom';
 import Loading from '../components/Loading';
 import { useGetCryptoCoinsQuery } from '../redux/CryptoApi';
 import { useGetCoinsListQuery } from '../redux/GeckoApi';
+import Error from '../components/Error';
 
 const Home = () => {
     // fetching the stats and coins
-    const { data , isFetching } = useGetCryptoCoinsQuery('coins');
+    const { data , isFetching ,isError:isError1 } = useGetCryptoCoinsQuery('coins');
     // defining stats
     const [stats,setStats] = useState({totalCoins:0,totalMarketCap:'0',totalExchanges:0,total24hVolume:'0'})
 
-    const { data:coinsList , isFetching:isFetchingCoins } = useGetCoinsListQuery('')
+    const { data:coinsList , isFetching:isFetchingCoins,isError:isError2 } = useGetCoinsListQuery('')
     // definig coins
     const [coins,setCoins] = useState([{name:'',current_price:'',image:'',symbol:'',id:''}])
     // defining the number of needed bullets
@@ -59,6 +60,7 @@ const Home = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[isFetching,isFetchingCoins])
     if(isFetching || isFetchingCoins) return <Loading />
+    if(isError1 || isError2) return <Error />
     return (
         <section className='container'>
             <article className='status'>

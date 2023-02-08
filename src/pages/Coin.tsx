@@ -9,10 +9,11 @@ import { alertActions } from '../redux/AlertController';
 import type { RootState } from '../config/store';
 import { doc,setDoc } from 'firebase/firestore';
 import { db } from '../config/firebase';
+import Error from '../components/Error';
 
 const Coin = () => {
     const { name } = useParams()
-    const { data , isFetching} = useGetCoinDataQuery(name)
+    const { data , isFetching , isError} = useGetCoinDataQuery(name)
     const [chosenBtn , setChosenBtn] = useState(0);
     const watchList = useSelector((state:RootState) => state.watchList);
     const isLoggedIn = useSelector((state:RootState) => state.user.isLoggedIn);
@@ -72,6 +73,7 @@ const Coin = () => {
         }
     },[isFetching,data,changePercentage])
 
+    if(isError) return <Error />
     if(isFetching) return <Loading />
     return (
         <section className='container'>

@@ -5,7 +5,6 @@ import Loading from '../components/Loading';
 
 const News = () => {
     const { data , isFetching } = useGetCryptoNewsQuery({category:'crypto',count:'20'})
-    console.log(data)
     const [newsArray,setNewsArray ] = useState([{datePublished:'',name:'',url:'',providerLogo:'',newsImage:''}])
     useEffect(()=>{
         if(!isFetching){
